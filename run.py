@@ -22,13 +22,13 @@ def searchSubnet(ip_list):
     ip_sample = ip_matrix[0]
     
     count_subs = [ip_matrix[:, index].tolist().count(sub) for index, sub in enumerate(ip_sample)]
-    common_subs = list(genCommonSubs(ip_matrix, count_subs, ip_sample))
+    common_subs = list(genCommonSubs(count_subs, len(ip_matrix), ip_sample))
     
     return '.'.join(common_subs)    
 
-def genCommonSubs(ip_matrix, count_subs, ip_sample):
+def genCommonSubs(count_subs, ips_count, ip_sample):
     for index, count in enumerate(count_subs):
-        if len(ip_matrix) != count: return
+        if ips_count != count: return
         yield str(ip_sample[index])
 
 if __name__ == "__main__" :
