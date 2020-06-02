@@ -15,7 +15,7 @@ class TestSubnetSearch(unittest.TestCase):
         self.assertEqual(searchSubnet(['193.168.1.12','192.168.1.34']), '')
 
 '''
-build subs matrix from ip list then check wich subs from first ip are common amongst others
+build subs matrix from ip list then check which subs from first ip are common amongst others
 '''
 def searchSubnet(ip_list):
     ip_matrix = np.array([[int(sub) for sub in ip.split('.')] for ip in ip_list])
