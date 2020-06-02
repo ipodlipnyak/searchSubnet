@@ -19,9 +19,10 @@ build subs matrix from ip list then check wich subs from first ip are common amo
 '''
 def searchSubnet(ip_list):
     ip_matrix = np.array([[int(sub) for sub in ip.split('.')] for ip in ip_list])
+    ip_sample = ip_matrix[0]
     
-    count_subs = [ip_matrix[:, index].tolist().count(sub) for index, sub in enumerate(ip_matrix[0])]
-    common_subs = list(genCommonSubs(ip_matrix, count_subs, ip_matrix[0]))
+    count_subs = [ip_matrix[:, index].tolist().count(sub) for index, sub in enumerate(ip_sample)]
+    common_subs = list(genCommonSubs(ip_matrix, count_subs, ip_sample))
     
     return '.'.join(common_subs)    
 
