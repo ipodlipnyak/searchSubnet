@@ -1,5 +1,8 @@
 import numpy as np
 
+'''
+build subs matrix from ip list then check wich subs from first ip are common amongst others
+'''
 def searchSubnet(ip_list):
     ip_matrix = np.array([[int(sub) for sub in ip.split('.')] for ip in ip_list])
     
